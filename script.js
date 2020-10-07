@@ -1,8 +1,8 @@
 /**
  * TODO: Update the text in the "Formatted Text" section as a user types in the textarea ✅
  * TODO TOGETHER: Add a .bold, .italic classes to "Formatted Text" when the appropriate button is clicked ✅
- * TODO: Add an .underline class to "Formatted Text" when Underline button is clicked
- * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
+ * TODO: Add an .underline class to "Formatted Text" when Underline button is clicked ✅
+ * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked ✅
  */
 
 /**
@@ -61,5 +61,15 @@ function makeUnderline(elem) {
  * HINT: Make sure to untoggle the active state for all other align buttons
  */
 function alignText(elem, alignType) {
+  elem.classList.toggle("active");
+  // console.log(alignType);
+  document.getElementById("text-output").style.textAlign = alignType;
+  //we want to get all buttons
+  let buttonsList = document.getElementsByClassName("align");
+  for (let i = 0; i < buttonsList.length; i++) {
+    buttonsList[i].classList.remove("active");
+  }
+  //Here we want to only make one of the buttons active
+  elem.classList.add("active");
   // CODE GOES HERE
 }
