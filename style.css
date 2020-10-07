@@ -26,3 +26,18 @@
 .underline {
   text-decoration: underline;
 }
+
+h1 {
+  color: darkseagreen;
+}
+
+.bg-light {
+  background-color: darkseagreen !important;
+}
+
+/* You add this to change bootstrap input focus blue glow to other color. */
+.form-control:focus {
+  border-color: darkseagreen;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(143, 188, 143, 0.6);
+}
