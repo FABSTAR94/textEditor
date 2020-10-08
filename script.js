@@ -3,18 +3,18 @@
  * TODO TOGETHER: Add a .bold, .italic classes to "Formatted Text" when the appropriate button is clicked ✅
  * TODO: Add an .underline class to "Formatted Text" when Underline button is clicked ✅
  * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked ✅
- */
-
+ * TODO: Convert all functions and any other possible elements to ES6.✅
+ 
 /**
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeyup function inside HTML.
  */
 //when text input do the same for text output.
-function updateText() {
+updateText = () => {
   // Here we are passing the text inside the id "text input" into the "text-output" id.
   let text = document.getElementById("text-input").value;
   document.getElementById("text-output").innerText = text;
-}
+};
 
 /**
  * Toggle the bold class for the output text
@@ -23,19 +23,19 @@ function updateText() {
  * HINT: Use the classList property
  * HINT: Toggle .active class for the button will show button selected.
  */
-function makeBold(elem) {
+makeBold = (elem) => {
   //CODE GOES HERE
   elem.classList.toggle("active");
   document.getElementById("text-output").classList.toggle("bold");
-}
+};
 
 /**
  * Toggle the italic class for the output text
  */
-function makeItalic(elem) {
+makeItalic = (elem) => {
   elem.classList.toggle("active");
   document.getElementById("text-output").classList.toggle("italic");
-}
+};
 
 /**
  * Toggle the underline class for the output text
@@ -43,7 +43,7 @@ function makeItalic(elem) {
  * HINT: Use the classList property
  * HINT: Use contains, remove, and add functions
  */
-function makeUnderline(elem) {
+makeUnderline = (elem) => {
   //CODE GOES HERE
   elem.classList.toggle("active");
   let formattedText = document.getElementById("text-output");
@@ -52,7 +52,7 @@ function makeUnderline(elem) {
   } else {
     formattedText.classList.add("underline");
   }
-}
+};
 
 /**
  * Toggle the style textAlign attribute
@@ -60,16 +60,16 @@ function makeUnderline(elem) {
  * HINT: Use the style property of the element
  * HINT: Make sure to untoggle the active state for all other align buttons
  */
-function alignText(elem, alignType) {
-  elem.classList.toggle("active");
+alignText = (elem, alignType) => {
   // console.log(alignType);
   document.getElementById("text-output").style.textAlign = alignType;
-  //we want to get all buttons
-  let buttonsList = document.getElementsByClassName("align");
-  for (let i = 0; i < buttonsList.length; i++) {
-    buttonsList[i].classList.remove("active");
+  //we want to get all buttons, alignButtons is not an array so we can't use map, foreach,... it is an HTML COLLECTION.
+  let alignButtons = document.getElementsByClassName("align");
+  console.log(alignButtons);
+  for (let button of alignButtons) {
+    button.classList.remove("active");
   }
   //Here we want to only make one of the buttons active
-  elem.classList.add("active");
+  elem.classList.toggle("active");
   // CODE GOES HERE
-}
+};
